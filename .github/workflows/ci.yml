@@ -16,9 +16,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install Demo App
+      - name: Download Demo App
         uses: php-actions/composer@v6
         with:
-          command: create-project symfony/symfony-demo:1.8.0 . --no-install
-      - name: build
+          command: create-project symfony/symfony-demo:1.8.0 ../demo
+      - name: Copy Demo Project Source
+        run: mv -f ../demo .
+      - name: Build
         run: docker-compose up -d
