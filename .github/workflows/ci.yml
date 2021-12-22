@@ -19,6 +19,6 @@ jobs:
       - name: Install Demo App
         uses: php-actions/composer@v6
         with:
-          command: composer create-project symfony/symfony-demo:1.8.0 . --no-install
+          command: create-project symfony/symfony-demo:1.8.0 . --no-install
       - name: build
         run: docker-compose up -d
